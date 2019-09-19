@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>我的第一个项目实战页面</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style type="text/css">
+		*{
+			margin:0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		body{
+			background: #f6f6f6;
+		}
+		.header{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 70px;
+			line-height: 70px;
+			background: #fff;
+			padding-left: 5%;
+            z-index: 999;
+		}
+		.header img{
+			vertical-align: middle;
+		}
+		.logo{
+			width: 100px;
+			height: 70px;
+			margin-left: -10px;
+		}
+        .logofont{
+            font-size: 15px;
+            text-align: center;
+        }
+		.search{
+			width: 35px;
+			height: 35px;
+            margin-left: 65px;
+            margin-right: 20px;
+		}
+        .userimg{
+			width: 35px;
+			height: 35px;
+            right: 0;
+		}
+		.bannerwrap{
+            position: relative;
+            overflow: hidden;
+			margin-top: 90px;
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+		}
+        .carousel-inner{
+            width: 100%;
+            height: 200px;
+        }
+        .carousel-inner img{
+            width: 100%;
+            height: 200px;
+        }
+        /*调整容器大小*/
+		#myCarousel {
+			width: 100%;
+            height: 200px;
+		}
+        .carousel-indicators li{
+            width: 8px;
+            height: 8px;
+            display: inline-block;
+            border-radius: 100%;
+            background: #000;
+            opacity: .2;
+            margin: 0;
+        }
+        .carousel-indicators .active{
+            opacity: 1;
+            width: 8px;
+            height: 8px;
+            background:#007aff;
+        }
+		/*调整圆圈链接ol位置*/
+		.carousel-indicators {
+			bottom: -5px;
+		}
+        .container{
+            position: relative;
+            margin-top: 80px;
+            padding-right: 0px;
+            padding-left: 0px;
+            margin-right: auto;
+            margin-left: auto;
+            z-index: 0;
+        }
+		.classifywrap{
+			margin-top: 10px;
+			background: #fff;
+			padding-bottom: 5px;
+            width: 100%;
+            height: 100px;
+            border-radius: 10%;
+
+		}
+		.classify{
+			overflow: hidden;
+		}
+		.classify li{
+			float: left;
+			width: 25%;
+			text-align: center;
+            padding-top: 8px;
+		}
+		.classify .dic{
+			color: #7e8c8d;
+            font-family: '微软雅黑';
+		}
+		.classify .img img{
+			display: inline-block;
+			width: 40px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			border-radius: 50%;
+			font-size: 18px;
+			color: #fff;
+			margin: 10px 0;
+		}
+		.coursewrap{
+			width: 100%;
+			background: #fff;
+			padding: 0 5%;
+			box-sizing: border-box;
+			margin: 10px 0;
+		}
+		.hotwrap{
+			height: 50px;
+			line-height: 50px;
+		}
+		.hotwrap img{
+			width: 25px;
+			height: 25px;
+			vertical-align: text-bottom;
+		}
+		.courselist{
+			overflow: hidden;
+			margin-bottom: 92px;
+		}
+		.courselist li{
+			float: left;
+			width: 48%;
+			margin-bottom:10px;
+		}
+		.courseposter{
+			width: 100%;
+			height: 120px;
+		}
+		.courseposter img{
+			width: 100%;
+			height: 100%;
+			border-radius: 5px;
+		}
+		.coursetitle{
+			font-size: 13px;
+			color: #333;
+			margin-top: 5px;
+		}
+		.levelprice{
+			overflow: hidden;
+			margin-top: 5px;
+		}
+		.level{
+			float: left;
+			font-size: 12px;
+			color: #333;
+		}
+		.price{
+			float: right;
+			color: red;
+			font-size: 13px;
+		}
+		/*设置商品的基数行li*/
+		.courselist li:nth-of-type(odd){
+			margin-right: 4%;
+		}
+		#bottomnav{
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+            margin-bottom: 0;
+		}
+        .footnav{
+            width: 25%;
+            height: 23px;
+        }
+        .foofont{
+            font-size: 10px;
+            font-family: "微软雅黑";
+        }
+        .footwrap{
+            width: 100%;
+            height: 50px;
+            bottom: 0;
+            background: #fff;
+        }
+        .fooul{
+            overflow: hidden;
+        }
+        .fooul li{
+            float: left;
+			width: 25%;
+			text-align: center;
+            margin-top: 5px;
+        }
+	</style>
+</head>
+<body>
+	<!-- 页面头部 -->
+	<div class="header">
+		<img class="logo" src="./img/色块－超市.png"><span class="logofont">名青副食店</span>
+		<img class="search" src="./img/search.png">
+		<img class="userimg" src="./img/userimg.png">
+	</div>
+	<!-- 轮播图 -->
+    <div class="container" id="myCarousel">
+                    <!-- 轮播图容器 -->
+                    <div id="carousel-example-generic" class="carousel slide">
+                        <!-- 轮播图上的圆圈链接 -->
+                        <ol class="carousel-indicators radiou">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+                        <!-- 轮播图具体内容 -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="img/1.jpg" style=" width: 100%; height: 200px;">
+                                <!-- 图上文字 -->
+                                <!-- <div class="carousel-caption">
+                                    <h4>Red Car Fly</h4>
+                                    <p>ajsuten hsdfupeia jsdtfua</p>
+                                </div> -->
+                            </div>
+                            <div class="item">
+                                <img src="img/2.jpg" style=" width: 100%; height: 200px;">
+                                <!-- 图上文字 -->
+                                <!-- <div class="carousel-caption">
+                                    <h4>White Car Fly</h4>
+                                    <p>ajsuten hsdfupeia jsdtfua</p>
+                                </div> -->
+                            </div>
+                            <div class="item">
+                                <img src="img/3.jpg" style=" width: 100%; height: 200px;">
+                                <!-- 图上文字 -->
+                                <!-- <div class="carousel-caption">
+                                    <h4>Blue Car Fly</h4>
+                                    <p>ajsuten hsdfupeia jsdtfua</p>
+                                </div> -->
+                            </div>
+                        </div>
+                        <!-- 轮播图上的向前一图切换链接 -->
+                        <!-- <a href="#carousel-example-generic" data-slide="prev" class="left carousel-control">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        轮播图上的向后一图切换链接 -->
+                        <!-- <a href="#carousel-example-generic" data-slide="next" class="right carousel-control">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a> -->
+                    </div>
+    </div>
+	<!-- 分类 -->
+	<div class="classifywrap">
+		<ul class="classify">
+			<li>
+				<div class="img">
+                    <img src="img/nav.png" alt="">
+                </div>
+				<p class="dic">超市</p>
+			</li>
+			<li>
+				<div class="img">
+                    <img src="img/nav1.png" alt="">
+                </div>
+				<p class="dic">数码电器</p>
+			</li>
+			<li>
+				<div class="img">
+                    <img src="img/nav3.png" alt="">
+                </div>
+				<p class="dic">潮流服饰</p>
+			</li>
+			<li>
+				<div class="img">
+                    <img src="img/nav2.png" alt="">
+                </div>
+				<p class="dic">充值缴费</p>
+			</li>
+		</ul>
+	</div>
+	<!-- 课程模块 -->
+	<div class="coursewrap">
+		<div class="hotwrap">
+			<img src="./img/hot.png">
+			热门商品
+		</div>
+		<ul class="courselist">
+			<li>
+				<div class="courseposter">
+					<img src="./img/mianbao.jpg">
+				</div>
+				<p class="coursetitle">港荣蒸蛋糕</p>
+				<div class="levelprice">
+					<p class="level">520g/1盒</p>
+					<p class="price">￥29.8</p>
+				</div>
+            </li>
+            <li>
+				<div class="courseposter">
+					<img src="./img/milk.jpg">
+				</div>
+				<p class="coursetitle">新鲜牛奶</p>
+				<div class="levelprice">
+					<p class="level">250ml/1盒</p>
+					<p class="price">￥2.8</p>
+				</div>
+            </li>
+            <li>
+				<div class="courseposter">
+					<img src="./img/bea.jpg">
+				</div>
+				<p class="coursetitle">新鲜面包</p>
+				<div class="levelprice">
+					<p class="level">360g/1袋</p>
+					<p class="price">￥29.8</p>
+				</div>
+            </li>
+            <li>
+				<div class="courseposter">
+					<img src="./img/rub.jpg">
+				</div>
+				<p class="coursetitle">特惠垃圾袋</p>
+				<div class="levelprice">
+					<p class="level">6个/1包</p>
+					<p class="price">￥9.8</p>
+				</div>
+            </li>
+            <li>
+				<div class="courseposter">
+					<img src="./img/you.jpg">
+				</div>
+				<p class="coursetitle">精品酱油</p>
+				<div class="levelprice">
+					<p class="level">350ml/1瓶</p>
+					<p class="price">￥19.8</p>
+				</div>
+            </li>
+            <li>
+				<div class="courseposter">
+					<img src="./img/mianbao.jpg">
+				</div>
+				<p class="coursetitle">香酥饼</p>
+				<div class="levelprice">
+					<p class="level">6个/1袋</p>
+					<p class="price">￥29.8</p>
+				</div>
+			</li>
+			
+		</ul>
+	</div>
+	<!-- 底部导航 -->
+	<div class="footwrap" id="bottomnav">
+		<ul class="fooul">
+			<li>
+                <div class="foot"><img class="footnav" src="./img/首页.png"></div>
+                <p class="foofont">首页</p>
+			</li>
+			<li>
+                <div class="foot"><img class="footnav" src="./img/分类.png"></div>
+                <p class="foofont">分类</p>
+			</li>
+			<li>
+                <div class="foot"><img class="footnav" src="./img/购物车.png"></div>
+                <p class="foofont">购物车</p>
+			</li>
+			<li>
+                <div class="foot"><img class="footnav" src="./img/个人中心.png"></div>
+                <p class="foofont">个人中心</p>
+			</li>
+		</ul>
+	</div>
+
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		$(".carousel").carousel({
+			interval:2000 //每隔两秒自动轮播
+		})
+	</script>
+</body>
+</html>
